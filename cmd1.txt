@@ -1,0 +1,95 @@
+Q1> Creating the table:
+
+create table customer (cust_id int, 
+cust_fname varchar2(50),
+cust_lname varchar2(50),
+territory varchar2(100),
+cred_limit int,
+mngr_id int,
+marital_status varchar2(100),
+sex varchar2(30),
+income int );
+
+desc customer
+
+
+
+Insert one row:
+
+insert into customer(cust_id, cust_fname, cust_lname, territory, cred_limit, mngr_id, marital_status, sex, income)
+values(01, 'Rahul', 'Singh', 'India', 10000, 112, 'Single', 'Male', 65000);
+
+select * from customer
+
+
+
+Change Name: 
+
+ALTER TABLE customer RENAME COLUMN cred_limit TO cred_lmt;
+
+
+
+
+Q2> Alter table and add name: 
+
+alter table customer
+add stay_from_year int;
+
+
+
+
+Q3> Conditional value input
+
+update customer 
+set stay_from_year= 2001 where territory in('Italy', 'America'); 
+
+update customer 
+set stay_from_year= 2003 where territory not in('Italy', 'America'); 
+
+
+
+
+
+Q4> Display credit limit attribution for America
+
+select cred_lmt from customer where territory= 'America'
+
+
+
+
+Q5> Delete the record corresponding to Meg Sen
+
+delete from customer where cust_fname = 'Meg' and cust_lname = 'Sen'
+
+
+
+
+Q6> Show all attributes from Italy
+
+select * from customer where territory = 'Italy'
+
+
+
+
+Q7> If territory is India and Status is Single set value of credit to 7000
+
+update customer
+set cred_lmt = 7000 where territory = 'India' and marital_status = 'Single'
+
+
+Q8> rename cust_fname to first_name 
+
+alter table customer rename column cust_fname to first_name;
+
+
+
+
+Q9> rename cust_lname to last_name 
+
+alter table customer rename column cust_lname to first_name;
+
+
+
+
+
+
